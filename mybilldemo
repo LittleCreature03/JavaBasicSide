@@ -1,0 +1,363 @@
+import java.awt.*; 
+import java.awt.image.BufferedImage;
+import java.awt.event.*;
+import javax.swing.*; 
+import javax.swing.ImageIcon;
+import java.awt.Graphics;
+import java.io.File;
+import javax.imageio.ImageIO;  //importing packages awt and swing for GUI programming
+
+public class mybilldemo extends JFrame implements ActionListener{    /*extending JFrame class and we are implementing ActionListener Interface*/
+
+public void bills()
+{
+JFrame f=new JFrame("***ALAM RESTAURANT***");  //creating a new frame
+JPanel p=new JPanel();  			//creating a new panel
+JPanel jp=new JPanel();			//creating another panel
+p.setBackground(Color.WHITE);  //setting background color as white
+
+ImageIcon img=new ImageIcon("E:/mychef.jpg");
+Image image=img.getImage().getScaledInstance(50,50,Image.SCALE_DEFAULT);
+ImageIcon i1=new ImageIcon(image);
+JLabel l=new JLabel(i1);
+/*inserting a chef image with pixel size 50,50 using ImageIcon and Image Class and creates a new label and adds it to the label*/
+p.add("North",l); //adds the label to the panel at the north position
+
+JLabel text=new JLabel("WELCOME TO ALAM RESTAURANT");
+text.setForeground(Color.BLACK);
+text.setFont(new Font("arial",Font.BOLD,16));
+p.add("North",text);
+/*creates a new label and set foreground color,font and also adds it to the panel at the north*/
+JLabel text1=new JLabel("**********MENU**********");
+p.add(text1);  //creates a label and add the above text to the panel
+
+JLabel t1=new JLabel("COHODRINKS");
+JLabel t2=new JLabel("MID-DAY MEALS");
+JLabel t3=new JLabel("TIFFI-DAY");
+JLabel t4=new JLabel("SPECIAL OF THE DAY");
+//creates 4 labels for 4 options
+
+text1.setForeground(Color.RED);
+text1.setFont(new Font("arial",Font.BOLD,24));
+t1.setForeground(Color.BLACK);
+t1.setFont(new Font("arial",Font.BOLD,12)); //sets foreground color and font
+t1.setLocation(10,10);
+t1.setVisible(true);
+//to avoid misalignment set position and also makes it visible 
+String[] s1={"None","cold cofee= Rs.50","Hot cofee= Rs.20","fruit juices= Rs.80","Tea= Rs.25"};
+JComboBox<String>c1=new JComboBox<String>(s1);
+c1.setBackground(Color.WHITE);
+c1.setPreferredSize(new Dimension(30,25));
+/*creates a combo box with list of choices also set background color and size for combobox*/
+ImageIcon img1=new ImageIcon("E:/coffee.jpg");
+Image image1=img1.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im1=new ImageIcon(image1);
+JLabel l1=new JLabel(im1);
+
+ImageIcon img2=new ImageIcon("E:/cold coffee.jpg");
+Image image2=img2.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im2=new ImageIcon(image2);
+JLabel l2=new JLabel(im2);
+
+ImageIcon img3=new ImageIcon("E:/fruit.jpg");
+Image image3=img3.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im3=new ImageIcon(image3);
+JLabel l3=new JLabel(im3);
+
+
+ImageIcon img4=new ImageIcon("E:/tea.jpg");
+Image image4=img4.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im4=new ImageIcon(image4);
+JLabel l4=new JLabel(im4);
+
+/*inserting a coffee,cold coffee,fruit,tea images with pixel size 80,80 using ImageIcon and Image Class and creates new labels and adds them to the labels*/
+
+t2.setForeground(Color.BLACK);
+t2.setFont(new Font("arial",Font.BOLD,12));
+t1.setLocation(50,50);
+String[] s2={"None","Mini-Meals= Rs.80","Variety Meals= Rs.60","Full Meals= Rs.120"};
+JComboBox<String>c2=new JComboBox<String>(s2);
+c2.setBackground(Color.WHITE);
+c2.setPreferredSize(new Dimension(300,25));
+/*creates another combo box with list of choices, also set background color and size for combobox*/
+
+
+ImageIcon img5=new ImageIcon("E:/mini.jpg");
+Image image5=img5.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im5=new ImageIcon(image5);
+JLabel l5=new JLabel(im5);
+
+ImageIcon img6=new ImageIcon("E:/variety.jpg");
+Image image6=img6.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im6=new ImageIcon(image6);
+JLabel l6=new JLabel(im6);
+
+ImageIcon img7=new ImageIcon("E:/veg.jpg");
+Image image7=img7.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im7=new ImageIcon(image7);
+JLabel l7=new JLabel(im7);
+
+
+ImageIcon img7a=new ImageIcon("E:/full.jpg");
+Image image7a=img7a.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im7a=new ImageIcon(image7a);
+JLabel l7a=new JLabel(im7a);
+/*inserting a mini,variety,veg-meals,full images with pixel size 80,80 using ImageIcon and Image Class and creates new labels and adds them to the labels*/
+
+t3.setForeground(Color.BLACK);
+t3.setFont(new Font("arial",Font.BOLD,12));
+String[] s3={"None","Idly= Rs.35","Dosa= Rs.45","Chapathi= Rs.50","Poori= Rs.40"};
+JComboBox<String>c3=new JComboBox<String>(s3);
+c3.setBackground(Color.WHITE);
+c3.setPreferredSize(new Dimension(30,25)); 
+/*creates another combo box with list of choices, also set background color and size for combobox*/
+
+
+ImageIcon img8=new ImageIcon("E:/idly.jpg");
+Image image8=img8.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im8=new ImageIcon(image8);
+JLabel l8=new JLabel(im8);
+
+ImageIcon img9=new ImageIcon("E:/dosa.jpg");
+Image image9=img9.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im9=new ImageIcon(image9);
+JLabel l9=new JLabel(im9);
+
+ImageIcon img10=new ImageIcon("E:/chapathi.jpg");
+Image image10=img10.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im10=new ImageIcon(image10);
+JLabel l10=new JLabel(im10);
+
+ImageIcon img11=new ImageIcon("E:/poori.jpg");
+Image image11=img11.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im11=new ImageIcon(image11);
+JLabel l11=new JLabel(im11);
+/*inserting a idly,dosa,Chapathy,poori images with pixel size 80,80 using ImageIcon and Image Class and creates new labels and adds them to the labels*/
+
+t4.setForeground(Color.BLACK);
+t4.setFont(new Font("arial",Font.BOLD,12));
+String[] s4={"None","Panner Tikka= Rs.120","Mushroom Manjurian= rs.85","Crispy Corn Kebabs= Rs.100","Masala Macrooni= Rs.45","Spicy Spaghatti= Rs.45","Veg Hakka Noodles= Rs.50"};
+JComboBox<String>c4=new JComboBox<String>(s4);
+c4.setBackground(Color.WHITE);
+c4.setPreferredSize(new Dimension(300,25)); 
+/*creates another combo box with list of choices, also set background color and size for combobox*/
+
+ImageIcon img1a=new ImageIcon("E:/panneer.jpg");
+Image image1a=img1a.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im1a=new ImageIcon(image1a);
+JLabel l1a=new JLabel(im1a);
+
+ImageIcon img1b=new ImageIcon("E:/mush.jpg");
+Image image1b=img1b.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im1b=new ImageIcon(image1b);
+JLabel l1b=new JLabel(im1b);
+
+ImageIcon img1c=new ImageIcon("E:/sp.jpg");
+Image image1c=img1c.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im1c=new ImageIcon(image1c);
+JLabel l1c=new JLabel(im1c);
+
+ImageIcon img1d=new ImageIcon("E:/corn.jpg");
+Image image1d=img1d.getImage().getScaledInstance(80,80,Image.SCALE_DEFAULT);
+ImageIcon im1d=new ImageIcon(image1d);
+JLabel l1d=new JLabel(im1d);
+/*inserting a panner,mush,sp,corn images with pixel size 80,80 using ImageIcon and Image Class and creates new labels and adds them to the labels*/
+
+JButton b=new JButton("NEXT"); //creates a new button named NEXT
+b.addActionListener(this);   //adding action event
+GroupLayout gp=new GroupLayout(p);  /*defining a new layout called grouplayout to order the elements*/
+p.setLayout(gp); //adding the layout to the panel
+gp.setAutoCreateGaps(true);  
+gp.setAutoCreateContainerGaps(true);   /*creating gaps automatically between the elements*/
+
+GroupLayout.SequentialGroup hg=gp.createSequentialGroup(); /*arranges the elements sequentially i.e one after another*/
+
+hg.addGroup(gp.createParallelGroup() /*adds the component in parallel manner in horizontal path*/
+.addComponent(l)
+.addComponent(t1)
+.addComponent(t2)
+.addComponent(t3)
+.addComponent(t4));
+//adds all the components
+hg.addGroup(gp.createParallelGroup()
+.addComponent(text)
+.addComponent(c1)
+.addComponent(c2)
+.addComponent(c3)
+.addComponent(c4));
+//adds all the components
+hg.addGroup(gp.createParallelGroup()
+.addComponent(l1)
+.addComponent(l5)
+.addComponent(l8)
+.addComponent(l1a) 
+ //adds all the components
+);
+hg.addGroup(gp.createParallelGroup()
+.addComponent(l2)
+.addComponent(l6)
+.addComponent(l9)
+.addComponent(l1b));  
+ //adds all the components
+hg.addGroup(gp.createParallelGroup()
+.addComponent(l3)
+.addComponent(l7)
+.addComponent(l10)
+.addComponent(l1c));
+//adds all the components
+hg.addGroup(gp.createParallelGroup()
+.addComponent(l4)
+.addComponent(l7a)
+.addComponent(l11)
+.addComponent(l1d)
+.addComponent(b));
+gp.setHorizontalGroup(hg);  /*adds all the components and set it as a horizontal group*/
+
+                                                                                                                                                                                                                                                                                                                                                                                                                   GroupLayout.SequentialGroup vg=gp.createSequentialGroup();  /* creates a sequential group vertically*/
+vg.addGroup(gp.createParallelGroup(GroupLayout.Alignment.CENTER)
+.addComponent(l)
+.addComponent(text)); /*create a parallel group and adds the component at the center*/
+
+
+vg.addGroup(gp.createParallelGroup(GroupLayout.Alignment.BASELINE)
+.addComponent(t1)
+.addComponent(c1)
+.addComponent(l1)
+.addComponent(l2)
+.addComponent(l3)
+.addComponent(l4)
+);
+
+
+vg.addGroup(gp.createParallelGroup(GroupLayout.Alignment.BASELINE)
+.addComponent(t2)
+.addComponent(c2)
+.addComponent(l5)
+.addComponent(l6)
+.addComponent(l7)
+.addComponent(l7a));
+
+
+vg.addGroup(gp.createParallelGroup(GroupLayout.Alignment.BASELINE)
+.addComponent(t3)
+.addComponent(c3)
+.addComponent(l8)
+.addComponent(l9)
+.addComponent(l10)
+.addComponent(l11));
+gp.setVerticalGroup(vg);
+
+
+vg.addGroup(gp.createParallelGroup(GroupLayout.Alignment.BASELINE)
+.addComponent(t4)
+.addComponent(c4)
+.addComponent(l1a)
+.addComponent(l1b)
+.addComponent(l1c)
+.addComponent(l1d));
+gp.setVerticalGroup(vg);
+
+
+vg.addGroup(gp.createParallelGroup(GroupLayout.Alignment.BASELINE)
+.addComponent(b));
+//adds all the components in a parallel manner in vertical group
+f.setLocationRelativeTo(null);  //opens the window at the center of the desktop screen
+f.add(p);              //adds panel to the frame
+f.pack();             //packs all the elements and components
+f.setSize(800,500);   //sets the size of the frame
+f.setDefaultCloseOperation(DISPOSE_ON_CLOSE);  //specifies how to close a window
+f.setVisible(true);   //makes the frame visible
+}
+public void actionPerformed(ActionEvent e)
+{
+JFrame f1=new JFrame ("restaurant bill");  //creating a new frame
+JPanel p1=new JPanel ();  //creating a new panel
+
+
+ImageIcon img1=new ImageIcon("E:/biriyani.jpg");
+Image image1=img1.getImage().getScaledInstance(150,120,Image.SCALE_DEFAULT);
+ImageIcon im1=new ImageIcon(image1);
+JLabel l1=new JLabel(im1);
+
+
+ImageIcon img2=new ImageIcon("E:/chicken.jpg");
+Image image2=img2.getImage().getScaledInstance(150,120,Image.SCALE_DEFAULT);
+ImageIcon im2=new ImageIcon(image2);
+JLabel l2=new JLabel(im2);
+
+
+ImageIcon img3=new ImageIcon("E:/parotta.jpg");
+Image image3=img3.getImage().getScaledInstance(150,120,Image.SCALE_DEFAULT);
+ImageIcon im3=new ImageIcon(image3);
+JLabel l3=new JLabel(im3);
+
+
+ImageIcon img4=new ImageIcon("E:/piz.jpg");
+Image image4=img4.getImage().getScaledInstance(150,120,Image.SCALE_DEFAULT);
+ImageIcon im4=new ImageIcon(image4);
+JLabel l4=new JLabel(im4);
+//add images to the label by using ImageIcon class
+
+p1.add(l1);
+p1.add(l2);
+p1.add(l3);
+p1.add(l4);
+//adds the label to the panel
+
+String cols[]={"ITEM","RATE","GST","TIPS","TOTAL"};
+JTable tab=new JTable(10,5);  //creates a new table
+p1.setBackground(Color.WHITE); //setting background color for the panel
+p1.add(tab); //adding table to the panel
+tab.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+tab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+                 },
+            new String [] {
+                "ITEM", "RATE", "GST", "TIPS","TOTAL"
+            } ));
+/*setting border for the table and also determines the number of rows and columns for the table*/
+JLabel j2=new JLabel("CUSTOMER BILL",JLabel.CENTER);  //creates a new label
+j2.setForeground(Color.MAGENTA);  
+j2.setFont(new Font("arial",Font.BOLD,24));
+f1.add("North",j2);
+/*sets foreground , font for the label and adds it to the frame*/
+JPanel p2=new JPanel();
+f1.setSize(100,900);  //sets size for the frame
+p1.setBackground(Color.WHITE); //sets background color for the panel
+JLabel text2=new JLabel("///////ENJOY ALL OFFERS @ UPSTAIRS//////////");  //creates a new label
+text2.setForeground(Color.DARK_GRAY);
+text2.setFont(new Font("arial",Font.BOLD,24));
+text2.setLocation(200,100);
+/*sets foreground , font for the label and set location*/
+
+JLabel text3=new JLabel("THANK YOU   VISIT  AGAIN");  //creates a new label
+text3.setForeground(Color.DARK_GRAY);
+text3.setFont(new Font("Comic Sans MS",Font.BOLD,24));
+text3.setLocation(300,400);
+/*sets foreground , font for the label and set location*/
+
+
+JLabel text4=new JLabel("  HAVE A NICE DAY");
+text4.setForeground(Color.DARK_GRAY);
+text4.setFont(new Font("Comic Sans MS",Font.BOLD,24));
+text4.setLocation(300,400);
+/*creates a new label sets foreground , font for the label and set location*/
+
+p1.add(text2);
+p1.add(text3);
+p1.add(text4);
+f1.add(p1); //add all the components to the panel
+f1.pack();  //pack all the components
+f1.setVisible(true);  //makes the frame visible
+}
+public static void main(String args[]){
+mybilldemo m=new mybilldemo(); //creates an object and allocates memory
+m.bills(); //invokes the method
+}}
+
+
